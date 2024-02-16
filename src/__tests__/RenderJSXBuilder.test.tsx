@@ -8,14 +8,14 @@ import { RenderHookBuilder } from '../RenderHookBuilder';
 
 class ExtendedRenderer extends RenderJSXBuilder {
     counter(initialValue: number) {
-        this.wrapperElements.push(children => <CounterProvider initialValue={initialValue} children={children} />);
+        this.addElement(children => <CounterProvider initialValue={initialValue} children={children} />);
         return this;
     }
 }
 
 class ExtendedHookRenderer<T> extends RenderHookBuilder<T> {
     counter(initialValue: number) {
-        this.wrapperElements.push(children => <CounterProvider initialValue={initialValue} children={children} />);
+        this.addElement(children => <CounterProvider initialValue={initialValue} children={children} />);
         return this;
     }
 }

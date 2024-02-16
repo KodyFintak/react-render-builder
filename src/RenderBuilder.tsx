@@ -6,4 +6,8 @@ export abstract class RenderBuilder {
     protected wrapperElements: ProviderFunction[] = [];
 
     protected constructor() {}
+
+    protected addElement(element: ProviderFunction) {
+        this.wrapperElements.push(element);
+    }
 }
