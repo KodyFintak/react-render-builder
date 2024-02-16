@@ -1,26 +1,20 @@
-import { RenderBuilder } from './RenderBuilder';
 import { PropsWithChildren } from 'react';
-import { renderHook } from '@testing-library/react-native';
+import { renderHook, RenderHookResult } from '@testing-library/react-native';
+import { Element } from './Element';
 
-export class RenderHookBuilder<T> extends RenderBuilder {
-    constructor(private hookCallback: () => T) {
-        super();
-    }
+export type HookCallback<Result, Props> = (props: Props) => Result;
 
-    render() {
-        const wrapperFunc = (props: PropsWithChildren<any>) => this.createJSX(props.children);
+export class RenderHookBuilder<Result, Props> {
+    constructor(
+        private hookCallback: HookCallback<Result, Props>,
+        private wrapperFunc: (props: PropsWithChildren<any>) => Element,
+    ) {}
 
-        return renderHookWithWrapperRaw(this.hookCallback, wrapperFunc);
+    render(): RenderHookResult<Result, Props> {
+        return renderHook(this.hookCallback, { wrapper: this.wrapperFunc });
     }
 
     renderAndGetResult() {
         return this.render().result.current;
     }
-}
-
-function renderHookWithWrapperRaw<TValue>(
-    callback: () => TValue,
-    wrapper: (props: PropsWithChildren<any>) => React.JSX.Element,
-) {
-    return renderHook(callback, { wrapper });
 }

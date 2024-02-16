@@ -1,17 +1,14 @@
 import React from 'react';
 import { render, RenderAPI } from '@testing-library/react-native';
-import { RenderBuilder } from './RenderBuilder';
 
-export class RenderJSXBuilder extends RenderBuilder {
-    constructor(private content: React.JSX.Element) {
-        super();
+export class RenderJSXBuilder {
+    constructor(private content: React.JSX.Element) {}
+
+    jsx() {
+        return this.content;
     }
 
     render(): RenderAPI {
         return render(this.jsx());
-    }
-
-    jsx() {
-        return this.createJSX(this.content);
     }
 }

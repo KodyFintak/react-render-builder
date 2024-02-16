@@ -1,19 +1,12 @@
 import 'react-native';
 import { describe, expect, it } from '@jest/globals';
-import { RenderJSXBuilder } from '../RenderJSXBuilder';
 import { CounterProvider, useCounter } from '../CounterContext';
 import React from 'react';
 import { Text, View } from 'react-native';
-import { RenderHookBuilder } from '../RenderHookBuilder';
 
-class ExtendedRenderer extends RenderJSXBuilder {
-    counter(initialValue: number) {
-        this.addElement(children => <CounterProvider initialValue={initialValue} children={children} />);
-        return this;
-    }
-}
+import { RenderBuilder } from '../RenderBuilder';
 
-class ExtendedHookRenderer<T> extends RenderHookBuilder<T> {
+class MyRenderBuilder extends RenderBuilder {
     counter(initialValue: number) {
         this.addElement(children => <CounterProvider initialValue={initialValue} children={children} />);
         return this;
@@ -36,24 +29,24 @@ function useHelloHook() {
 
 describe('render jsx builder', () => {
     it('renders with default counter', () => {
-        const renderApi = new ExtendedRenderer(<Hello />).counter(0).render();
+        const renderApi = new MyRenderBuilder().counter(0).renderJSX(<Hello />);
         renderApi.getByText('Hello 0');
     });
 
     it('renders with counter value', () => {
-        const renderApi = new ExtendedRenderer(<Hello />).counter(1).render();
+        const renderApi = new MyRenderBuilder().counter(1).renderJSX(<Hello />);
         renderApi.getByText('Hello 1');
     });
 });
 
 describe('render hook ', () => {
     it('renders with default counter', () => {
-        const renderApi = new ExtendedHookRenderer(useHelloHook).counter(0).renderAndGetResult();
+        const renderApi = new MyRenderBuilder().counter(0).renderHookAndGetResult(useHelloHook);
         expect(renderApi).toEqual('Hello 0');
     });
 
     it('renders with counter value', () => {
-        const renderApi = new ExtendedHookRenderer(useHelloHook).counter(1).renderAndGetResult();
+        const renderApi = new MyRenderBuilder().counter(1).renderHookAndGetResult(useHelloHook);
         expect(renderApi).toEqual('Hello 1');
     });
 });
