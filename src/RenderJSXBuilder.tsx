@@ -12,8 +12,6 @@ export class RenderJSXBuilder extends RenderBuilder {
     }
 
     jsx() {
-        return this.wrapperElements.reverse().reduce((children, providerFunction) => {
-            return providerFunction(children);
-        }, this.content);
+        return this.createJSX(this.content);
     }
 }

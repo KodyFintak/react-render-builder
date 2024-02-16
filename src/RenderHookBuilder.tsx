@@ -8,10 +8,7 @@ export class RenderHookBuilder<T> extends RenderBuilder {
     }
 
     render() {
-        const wrapperFunc = (props: PropsWithChildren<any>) =>
-            this.wrapperElements.reverse().reduce((children, providerFunction) => {
-                return providerFunction(children);
-            }, props.children);
+        const wrapperFunc = (props: PropsWithChildren<any>) => this.createJSX(props.children);
 
         return renderHookWithWrapperRaw(this.hookCallback, wrapperFunc);
     }

@@ -10,4 +10,10 @@ export abstract class RenderBuilder {
     protected addElement(element: ProviderFunction) {
         this.wrapperElements.push(element);
     }
+
+    protected createJSX(innerMostElement: React.JSX.Element) {
+        return this.wrapperElements.reverse().reduce((children, providerFunction) => {
+            return providerFunction(children);
+        }, innerMostElement);
+    }
 }
