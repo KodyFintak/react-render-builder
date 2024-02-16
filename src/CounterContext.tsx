@@ -17,8 +17,12 @@ export const useCounter = (): Counter => {
     return counter;
 };
 
-export function CounterProvider(props: PropsWithChildren) {
-    const [counterValue, setCounter] = useState(0);
+interface CounterProps {
+    initialValue: number;
+}
+
+export function CounterProvider(props: PropsWithChildren<CounterProps>) {
+    const [counterValue, setCounter] = useState(props.initialValue);
     const counter: Counter = useMemo(
         () => ({
             value: counterValue,
