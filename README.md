@@ -93,13 +93,31 @@ in the tree.
 - wrapperElement: ProviderFunction that is a function that given a child element returns an Element wrapped with that
   child.
 
-e.g.
+###### Example
 
 ```tsx
-this.addElement(children => <MyComponent children={children}/>);
+this.addElement(children => <MyContext children={children}/>);
 ```
 
 ##### render
+
+Wraps @testing-library/react-native [render](https://testing-library.com/docs/react-testing-library/api/#render)
+function, but wraps given element with tree constructed via `addElement` in builder methods.
+
+###### Parameters
+
+- element: React JSX Element to render
+
+###### Returns
+
+- renderAPI:
+  @testing-library/react-native [RenderAPI](https://testing-library.com/docs/react-testing-library/api/#render-result)
+
+###### Example
+
+```tsx
+const renderAPI = new RenderBuilder().render(<MyComponent/>);
+```
 
 ##### toJSX
 
