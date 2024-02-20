@@ -2,6 +2,10 @@
 
 Simplify reusing Context-like components when testing Components and Hooks in React-Native
 
+Extension of @testing-library/react-native [render](https://testing-library.com/docs/react-testing-library/api/#render)
+and [renderHook](https://testing-library.com/docs/react-testing-library/api/#renderhook) functions with a builder
+interface for easily reusing setup of your JSX tree.
+
 ## Install
 
 ### yarn
