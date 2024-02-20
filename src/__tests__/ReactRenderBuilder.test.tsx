@@ -1,6 +1,6 @@
 import 'react-native';
 import { describe, expect, it } from '@jest/globals';
-import { CounterProvider, useCounter } from '../CounterContext';
+import { CounterProvider, useCounter } from '../../examples/CounterContext';
 import React from 'react';
 import { Text, View } from 'react-native';
 
