@@ -4,7 +4,7 @@ import { Element } from './Element';
 
 export type HookCallback<Result, Props> = (props: Props) => Result;
 
-export class RenderHookBuilder<Result, Props> {
+export class RenderHook<Result, Props> {
     constructor(
         private hookCallback: HookCallback<Result, Props>,
         private wrapperFunc: (props: PropsWithChildren<any>) => Element,

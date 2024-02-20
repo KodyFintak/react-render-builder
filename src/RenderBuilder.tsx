@@ -1,6 +1,6 @@
-import { RenderJSXBuilder } from './RenderJSXBuilder';
+import { RenderJSX } from './RenderJSX';
 import { PropsWithChildren } from 'react';
-import { HookCallback, RenderHookBuilder } from './RenderHookBuilder';
+import { HookCallback, RenderHook } from './RenderHook';
 import { Element, ProviderFunction } from './Element';
 import { RenderHookResult } from '@testing-library/react-native';
 
@@ -18,15 +18,15 @@ export abstract class RenderBuilder {
     }
 
     render(element: Element) {
-        return new RenderJSXBuilder(this.createJSX(element)).render();
+        return new RenderJSX(this.createJSX(element)).render();
     }
 
     renderHook<Result, Props>(hookCallback: HookCallback<Result, Props>): RenderHookResult<Result, Props> {
-        return new RenderHookBuilder(hookCallback, this.wrapperFunction()).render();
+        return new RenderHook(hookCallback, this.wrapperFunction()).render();
     }
 
     renderHookResult<Result, Props>(hookCallback: HookCallback<Result, Props>): Result {
-        return new RenderHookBuilder(hookCallback, this.wrapperFunction()).renderAndGetResult();
+        return new RenderHook(hookCallback, this.wrapperFunction()).renderAndGetResult();
     }
 
     private wrapperFunction() {
