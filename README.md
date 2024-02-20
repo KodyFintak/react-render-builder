@@ -121,6 +121,24 @@ const renderAPI = new RenderBuilder().render(<MyComponent/>);
 
 ##### toJSX
 
+Returns JSX Tree that will be passed to `render`. Useful for debugging or for rerendering via the
+[rerender](https://testing-library.com/docs/react-testing-library/api/#rerender) method from
+the [RenderAPI](https://testing-library.com/docs/react-testing-library/api/#render-result).
+
+###### Parameters
+
+- element: React JSX Element to render
+
+###### Returns
+
+- JSX element that is the entire tree
+
+###### Example
+
+```tsx
+const jsxTree = new RenderBuilder().toJSX(<MyComponent/>);
+```
+
 ##### renderHook
 
 ##### renderHookResult
