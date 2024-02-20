@@ -7,7 +7,7 @@ import { Text, View } from 'react-native';
 import { ReactRenderBuilder } from '../ReactRenderBuilder';
 
 class RenderBuilder extends ReactRenderBuilder {
-    counter(initialValue: number) {
+    counter(initialValue: number): this {
         this.addElement(children => <CounterProvider initialValue={initialValue} children={children} />);
         return this;
     }

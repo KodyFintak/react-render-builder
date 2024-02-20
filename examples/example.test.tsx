@@ -5,7 +5,7 @@ import { CounterProvider, useCounter } from './CounterContext';
 import { ReactRenderBuilder } from '../src';
 
 class RenderBuilder extends ReactRenderBuilder {
-    counter(initialValue: number) {
+    counter(initialValue: number): this {
         this.addElement(children => <CounterProvider initialValue={initialValue} children={children} />);
         return this;
     }

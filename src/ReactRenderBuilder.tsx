@@ -9,8 +9,8 @@ export type ProviderFunction = (children: Element) => Element;
 export class ReactRenderBuilder {
     private wrapperElements: ProviderFunction[] = [];
 
-    protected addElement(element: ProviderFunction) {
-        this.wrapperElements.push(element);
+    protected addElement(wrapperElement: ProviderFunction) {
+        this.wrapperElements.push(wrapperElement);
     }
 
     private createJSX(innerMostElement: Element) {
