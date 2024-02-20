@@ -11,14 +11,18 @@ interface for easily reusing setup of your JSX tree.
 ### yarn
 
 ```shell
-yarn add react-render-builder
+yarn add --dev react-render-builder
 ```
 
 ### npm
 
 ```shell
-npm install react-render-builder
+npm install --save-dev react-render-builder
 ```
+
+This library has a peerDependencies listing
+for [@testing-library/react-native](https://github.com/callstack/react-native-testing-library). Make sure you install it
+alongside this library.
 
 ## Usage
 
