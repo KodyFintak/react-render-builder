@@ -156,10 +156,24 @@ function, but wraps given hook with tree constructed via `addElement` in builder
 ###### Example
 
 ```tsx
-const renderHookResult = new RenderBuilder().renderHook(() => useMyHook('hello'));
+const renderHookResult = new RenderBuilder().renderHook(useMyHook);
 ```
 
 ##### renderHookResult
 
+Same as `renderHook` but returns the given hooks return value. Same as calling `renderHook(useMyHook).result.current`.
 
+###### Parameters
+
+- hook: React Hook to render
+
+###### Returns
+
+- return value of given hook
+
+###### Example
+
+```tsx
+const helloString = new RenderBuilder().renderHookResult(() => useHello('John'));
+```
 
