@@ -1,17 +1,17 @@
-# render-jsx-builder
+# react-render-builder
 
 ## Install
 
 ### yarn
 
 ```shell
-yarn add render-jsx-builder
+yarn add react-render-builder
 ```
 
 ### npm
 
 ```shell
-npm install render-jsx-builder
+npm install react-render-builder
 ```
 
 ## Usage
