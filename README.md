@@ -1,6 +1,6 @@
 # react-render-builder
 
-Simplify reusing Context-like components when testing Components and Hooks in React-Native
+Encapsulate Context/Data Providers when testing Components and Hooks in React-Native
 
 Extension of @testing-library/react-native [render](https://testing-library.com/docs/react-testing-library/api/#render)
 and [renderHook](https://testing-library.com/docs/react-testing-library/api/#renderhook) functions with a builder
