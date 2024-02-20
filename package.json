@@ -1,7 +1,9 @@
 {
   "name": "react-render-builder",
-  "version": "0.0.1",
+  "description": "Simplified Component Builder for Rendering JSX and Hooks",
+  "version": "0.0.2",
   "author": "Adam Whaley & Kody Fintak",
+  "repository": "https://github.com/KodyFintak/react-render-builder",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "source": "src/index.tsx",
