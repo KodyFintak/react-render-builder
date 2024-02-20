@@ -37,6 +37,24 @@ describe('render jsx builder', () => {
         const renderApi = new RenderBuilder().counter(1).render(<Hello />);
         renderApi.getByText('Hello 1');
     });
+
+    it('gets jsx without passing element', () => {
+        const jsx = new RenderBuilder().counter(1).toJSX();
+        expect(jsx).toEqual(
+            <CounterProvider initialValue={1}>
+                <></>
+            </CounterProvider>,
+        );
+    });
+
+    it('gets jsx with counter provider', () => {
+        const jsx = new RenderBuilder().counter(1).toJSX(<Hello />);
+        expect(jsx).toEqual(
+            <CounterProvider initialValue={1}>
+                <Hello />
+            </CounterProvider>,
+        );
+    });
 });
 
 describe('render hook ', () => {

@@ -2,7 +2,7 @@ import { RenderJSX } from './RenderJSX';
 import { PropsWithChildren } from 'react';
 import { HookCallback, RenderHook } from './RenderHook';
 import { Element } from './Element';
-import { RenderHookResult } from '@testing-library/react-native';
+import { RenderAPI, RenderHookResult } from '@testing-library/react-native';
 
 export type ProviderFunction = (children: Element) => Element;
 
@@ -13,14 +13,18 @@ export class ReactRenderBuilder {
         this.wrapperElements.push(element);
     }
 
-    protected createJSX(innerMostElement: Element) {
+    private createJSX(innerMostElement: Element) {
         return this.wrapperElements.reverse().reduce((children, providerFunction) => {
             return providerFunction(children);
         }, innerMostElement);
     }
 
-    render(element: Element) {
+    render(element: Element): RenderAPI {
         return new RenderJSX(this.createJSX(element)).render();
+    }
+
+    toJSX(element: Element = <></>): Element {
+        return new RenderJSX(this.createJSX(element)).jsx();
     }
 
     renderHook<Result, Props>(hookCallback: HookCallback<Result, Props>): RenderHookResult<Result, Props> {

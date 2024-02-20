@@ -4,7 +4,7 @@ import { render, RenderAPI } from '@testing-library/react-native';
 export class RenderJSX {
     constructor(private content: React.JSX.Element) {}
 
-    jsx() {
+    jsx(): React.JSX.Element {
         return this.content;
     }
 
