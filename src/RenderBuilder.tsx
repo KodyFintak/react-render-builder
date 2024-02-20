@@ -1,8 +1,10 @@
 import { RenderJSX } from './RenderJSX';
 import { PropsWithChildren } from 'react';
 import { HookCallback, RenderHook } from './RenderHook';
-import { Element, ProviderFunction } from './Element';
+import { Element } from './Element';
 import { RenderHookResult } from '@testing-library/react-native';
+
+export type ProviderFunction = (children: Element) => Element;
 
 export abstract class RenderBuilder {
     protected wrapperElements: ProviderFunction[] = [];
