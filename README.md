@@ -141,6 +141,24 @@ const jsxTree = new RenderBuilder().toJSX(<MyComponent/>);
 
 ##### renderHook
 
+Wraps @testing-library/react-native [renderHook](https://testing-library.com/docs/react-testing-library/api/#renderhook)
+function, but wraps given hook with tree constructed via `addElement` in builder methods.
+
+###### Parameters
+
+- hook: React Hook to render
+
+###### Returns
+
+- renderHookResult:
+  @testing-library/react-native [RenderHookResult](https://testing-library.com/docs/react-testing-library/api/#renderhook)
+
+###### Example
+
+```tsx
+const renderHookResult = new RenderBuilder().renderHook(() => useMyHook('hello'));
+```
+
 ##### renderHookResult
 
 
