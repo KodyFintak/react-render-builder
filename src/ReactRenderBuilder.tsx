@@ -6,8 +6,8 @@ import { RenderHookResult } from '@testing-library/react-native';
 
 export type ProviderFunction = (children: Element) => Element;
 
-export abstract class RenderBuilder {
-    protected wrapperElements: ProviderFunction[] = [];
+export class ReactRenderBuilder {
+    private wrapperElements: ProviderFunction[] = [];
 
     protected addElement(element: ProviderFunction) {
         this.wrapperElements.push(element);

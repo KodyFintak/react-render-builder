@@ -1,1 +1,1 @@
-export * from './RenderBuilder';
+export * from './ReactRenderBuilder';
