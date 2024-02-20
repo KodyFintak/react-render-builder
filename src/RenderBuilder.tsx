@@ -17,19 +17,15 @@ export abstract class RenderBuilder {
         }, innerMostElement);
     }
 
-    renderJSX(element: Element) {
+    render(element: Element) {
         return new RenderJSXBuilder(this.createJSX(element)).render();
-    }
-
-    rawJSX(element: Element): Element {
-        return new RenderJSXBuilder(this.createJSX(element)).jsx();
     }
 
     renderHook<Result, Props>(hookCallback: HookCallback<Result, Props>): RenderHookResult<Result, Props> {
         return new RenderHookBuilder(hookCallback, this.wrapperFunction()).render();
     }
 
-    renderHookAndGetResult<Result, Props>(hookCallback: HookCallback<Result, Props>): Result {
+    renderHookResult<Result, Props>(hookCallback: HookCallback<Result, Props>): Result {
         return new RenderHookBuilder(hookCallback, this.wrapperFunction()).renderAndGetResult();
     }
 

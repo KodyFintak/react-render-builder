@@ -29,24 +29,29 @@ function useHelloHook() {
 
 describe('render jsx builder', () => {
     it('renders with default counter', () => {
-        const renderApi = new MyRenderBuilder().counter(0).renderJSX(<Hello />);
+        const renderApi = new MyRenderBuilder().counter(0).render(<Hello />);
         renderApi.getByText('Hello 0');
     });
 
     it('renders with counter value', () => {
-        const renderApi = new MyRenderBuilder().counter(1).renderJSX(<Hello />);
+        const renderApi = new MyRenderBuilder().counter(1).render(<Hello />);
         renderApi.getByText('Hello 1');
     });
 });
 
 describe('render hook ', () => {
     it('renders with default counter', () => {
-        const renderApi = new MyRenderBuilder().counter(0).renderHookAndGetResult(useHelloHook);
-        expect(renderApi).toEqual('Hello 0');
+        const helloText = new MyRenderBuilder().counter(0).renderHookResult(useHelloHook);
+        expect(helloText).toEqual('Hello 0');
     });
 
     it('renders with counter value', () => {
-        const renderApi = new MyRenderBuilder().counter(1).renderHookAndGetResult(useHelloHook);
-        expect(renderApi).toEqual('Hello 1');
+        const helloText = new MyRenderBuilder().counter(1).renderHookResult(useHelloHook);
+        expect(helloText).toEqual('Hello 1');
+    });
+
+    it('renders with full hook result', () => {
+        const renderHookResult = new MyRenderBuilder().counter(0).renderHook(useHelloHook);
+        expect(renderHookResult.result.current).toEqual('Hello 0');
     });
 });
