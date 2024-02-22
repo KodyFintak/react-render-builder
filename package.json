@@ -1,14 +1,14 @@
 {
   "name": "react-render-builder",
   "description": "Encapsulate Context/Data Providers when testing Components and Hooks in React-Native",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Adam Whaley & Kody Fintak",
   "repository": "https://github.com/KodyFintak/react-render-builder",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "source": "src/index.tsx",
+  "source": "dist/index.tsx",
   "license": "MIT",
-  "react-native": "src/index.tsx",
+  "react-native": "dist/index.tsx",
   "scripts": {
     "clean": "rm -rf node_modules",
     "bundle": "tsup",
