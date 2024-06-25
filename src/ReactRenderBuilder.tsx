@@ -2,7 +2,7 @@ import { RenderJSX } from './RenderJSX';
 import { PropsWithChildren } from 'react';
 import { HookCallback, RenderHook } from './RenderHook';
 import { Element } from './Element';
-import { RenderAPI, RenderHookResult } from '@testing-library/react-native';
+import { RenderHookResult, RenderResult } from '@testing-library/react';
 
 export type ProviderFunction = (children: Element) => Element;
 
@@ -19,7 +19,7 @@ export class ReactRenderBuilder {
         }, innerMostElement);
     }
 
-    render(element: Element): RenderAPI {
+    render(element: Element): RenderResult {
         return new RenderJSX(this.createJSX(element)).render();
     }
 

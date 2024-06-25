@@ -1,5 +1,4 @@
 import React from 'react';
-import { Text, View } from 'react-native';
 import { describe, expect, it } from '@jest/globals';
 import { CounterProvider, useCounter } from './CounterContext';
 import { ReactRenderBuilder } from '../src';
@@ -14,9 +13,9 @@ class RenderBuilder extends ReactRenderBuilder {
 function Hello() {
     const counterValue = useHelloHook();
     return (
-        <View>
-            <Text>{counterValue}</Text>
-        </View>
+        <div>
+            <p>{counterValue}</p>
+        </div>
     );
 }
 

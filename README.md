@@ -1,8 +1,11 @@
 # react-render-builder
 
-Encapsulate Context/Data Providers when testing Components and Hooks in React-Native
+Encapsulate Context/Data Providers when testing Components and Hooks in React
 
-Extension of @testing-library/react-native [render](https://testing-library.com/docs/react-testing-library/api/#render)
+For react-native support,
+checkout [react-native-render-builder](https://github.com/KodyFintak/react-native-render-builder)
+
+Extension of @testing-library/react [render](https://testing-library.com/docs/react-testing-library/api/#render)
 and [renderHook](https://testing-library.com/docs/react-testing-library/api/#renderhook) functions with a builder
 interface for easily reusing setup of your JSX tree.
 
@@ -44,7 +47,6 @@ Then you can use it in your tests
 
 ```tsx
 import React from 'react';
-import { Text, View } from 'react-native';
 import { describe, expect, it } from '@jest/globals';
 import { useCounter } from './CounterContext';
 import { RenderBuilder } from './RenderBuilder';
@@ -66,9 +68,9 @@ describe('hello with counter 1', () => {
 function Hello() {
     const counterValue = useHelloHook();
     return (
-        <View>
-            <Text>{counterValue}</Text>
-        </View>
+        <div>
+            <p>{counterValue}</p>
+        </div>
     );
 }
 
@@ -118,8 +120,8 @@ function, but wraps given element with tree constructed via `addElement` in buil
 
 ###### Returns
 
-- renderAPI:
-  @testing-library/react-native [RenderAPI](https://testing-library.com/docs/react-testing-library/api/#render-result)
+- renderResult:
+  @testing-library/react-native [RenderResult](https://testing-library.com/docs/react-testing-library/api/#render-result)
 
 ###### Example
 
@@ -131,7 +133,7 @@ const renderAPI = new RenderBuilder().render(<MyComponent/>);
 
 Returns JSX Tree that will be passed to `render`. Useful for debugging or for rerendering via the
 [rerender](https://testing-library.com/docs/react-testing-library/api/#rerender) method from
-the [RenderAPI](https://testing-library.com/docs/react-testing-library/api/#render-result).
+the [RenderResult](https://testing-library.com/docs/react-testing-library/api/#render-result).
 
 ###### Parameters
 

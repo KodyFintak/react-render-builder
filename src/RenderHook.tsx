@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import { renderHook, RenderHookResult } from '@testing-library/react-native';
+import { renderHook, RenderHookResult } from '@testing-library/react';
 import { Element } from './Element';
 
 export type HookCallback<Result, Props> = (props: Props) => Result;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, RenderAPI } from '@testing-library/react-native';
+import { render, RenderResult } from '@testing-library/react';
 
 export class RenderJSX {
     constructor(private content: React.JSX.Element) {}
@@ -8,7 +8,7 @@ export class RenderJSX {
         return this.content;
     }
 
-    render(): RenderAPI {
+    render(): RenderResult {
         return render(this.jsx());
     }
 }
